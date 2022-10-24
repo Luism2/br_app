@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class BrUTT extends StatefulWidget {
   const BrUTT({Key? key}) : super(key: key);
@@ -85,16 +88,40 @@ class _BrUTTState extends State<BrUTT> with SingleTickerProviderStateMixin {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 800.0,
+            height: 500.0,
             child: Padding(
-              padding: const EdgeInsets.all(50),
-              child: TabBarView(
-                  controller: tabController,
-                  children: const [Text('Hola a todos')]),
+              padding: const EdgeInsets.all(20),
+              child: SfCalendar(
+                view: CalendarView.month,
+                monthViewSettings: MonthViewSettings(showAgenda: true),
+                dataSource: MeetingDataSource(getApointments()),
+              ),
             ),
           ),
         ),
       ],
     );
+  }
+}
+
+List<Appointment> getApointments() {
+  List<Appointment> meeting = <Appointment>[];
+  final DateTime today = DateTime.now();
+  final DateTime startTime =
+      DateTime(today.year, today.month, today.day, 9, 0, 0);
+  final DateTime endTime = startTime.add(const Duration(hours: 2));
+
+  meeting.add(Appointment(
+      startTime: startTime,
+      endTime: endTime,
+      subject: 'Sala del edificio P apartada',
+      color: Colors.red));
+
+  return meeting;
+}
+
+class MeetingDataSource extends CalendarDataSource {
+  MeetingDataSource(List<Appointment> source) {
+    appointments = source;
   }
 }
