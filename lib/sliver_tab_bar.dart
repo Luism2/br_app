@@ -11,11 +11,13 @@ class BrUTT extends StatefulWidget {
 class _BrUTTState extends State<BrUTT> with SingleTickerProviderStateMixin {
   TabController? tabController;
   int index = 0;
-  String image = 'assets/UTT.jpeg';
+  String image = 'assets/P.jpg';
 
   List<String> miImages = [
-    'assets/UTT.jpeg',
-    'assets/utt_logo_ver_6.png',
+    'assets/P.jpg',
+    'assets/C.jpg',
+    'assets/D.jpg',
+    'assets/H.jpg',
   ];
 
   void _tabListener() {
