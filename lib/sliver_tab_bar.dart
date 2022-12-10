@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
@@ -48,7 +46,7 @@ class _BrUTTState extends State<BrUTT> with SingleTickerProviderStateMixin {
         SliverAppBar(
           elevation: 0.0,
           pinned: true,
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color.fromARGB(255, 28, 117, 31),
           expandedHeight: 350.0,
           flexibleSpace: FlexibleSpaceBar(
             title: const Text('Reservacion UTT'),
@@ -62,7 +60,7 @@ class _BrUTTState extends State<BrUTT> with SingleTickerProviderStateMixin {
           pinned: true,
           primary: false,
           elevation: 8.0,
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: Color.fromARGB(255, 54, 126, 48),
           title: Align(
             alignment: AlignmentDirectional.center,
             child: TabBar(
